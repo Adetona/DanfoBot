@@ -1,0 +1,19 @@
+{
+  "name": "danfobot",
+  "version": "1.0.0",
+  "description": "Traffic Assistant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adetona/traffic-bot.git"
+  },
+  "author": "Abiodun Adetona]",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adetona/traffic-bot/issues"
+  },
+  "homepage": "https://github.com/Adetona/traffic-bot#readme"
+}
