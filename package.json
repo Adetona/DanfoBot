@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Adetona/traffic-bot/issues"
   },
-  "homepage": "https://github.com/Adetona/traffic-bot#readme"
+  "homepage": "https://github.com/Adetona/traffic-bot#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
