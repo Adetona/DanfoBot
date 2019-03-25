@@ -30,7 +30,7 @@ body{
 }
 
 .messageBox{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   border-bottom: 0px;
@@ -161,13 +161,12 @@ outline:none;
 $("form").submit(function(event){
   var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
-  //document.getElementsByClassName("danfoMsg").innerHTML = message;
-
  $('.chatBody').append(message);
 
+ $('.messageBox').val('');
+
   return false;
-  //console.log('Message sent');
-   //event.preventDefault();
+
 });
 
 </script>
