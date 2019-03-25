@@ -161,7 +161,11 @@ outline:none;
 $("form").submit(function(event){
   var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
+  var reply = '<div class="row">' +   '<p class="danfoMsg">' + $('.messageBox').val() + '</p>' + '</div>';
+
  $('.chatBody').append(message);
+
+ $('.chatBody').append(reply);
 
  $('.messageBox').val('');
 
