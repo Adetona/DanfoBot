@@ -7,7 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,12 +15,15 @@
 
 body{
   background: #F5F5F5;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+
 }
 
   .danfo-header{
     background-color: #FFBF00;
     font-weight: bold;
-    height: 50px;
+    height: 60px;
     color: white;
 
   }
@@ -28,17 +31,21 @@ body{
 
 
 .messageBox{
-  position: fixed;
+  /*position: fixed;
   bottom: 0;
   width: 100%;
   border-bottom: 0px;
-  /*height: 50px;*/ 
+
   border-left: 0px;
   border-right: 0px;
   font-size: 16px;
-  /*border-top: 5px;*/
-  border-top-color: gray;
-  /*margin-top: 1000px;*/
+
+  border-top-color: gray;*/
+
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  padding-bottom: 5px;
 
 }
 
@@ -122,10 +129,14 @@ outline:none;
 
 
 	        <div class="container-fluid chatBody" style="height: 1000px">
-								<div class="row">
+								<div class="row danfo-header">
 
-											<div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 danfo-header">
-														<p class="logo">DanfoBot</p>
+											<div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+													<img src="https://avatars2.githubusercontent.com/u/398893?s=50" alt="Avatar" style="border-radius: 50%; margin-top: 5px">
+											</div>
+
+                      <div class="col-sm-1 col-md-1 col-lg-1 col-xs-1">
+													 <span style="margin-left: 30px; margin-top: 10px;">DanfoBot</span>
 											</div>
 
 								</div>
