@@ -197,12 +197,18 @@ $("form").submit(function(event){
   function greetings() {
    if(messageBox == "Hello" || messageBox == "Hi"){
 
-     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)' + '</p>' + '</div>';
+     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)"' + '</p>' + '</div>';
 
      $('.chatBody').append(message);
 
      $('.chatBody').append(reply);
 
+  }else{
+    var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'I am sorry, I didnt get you. Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)"'  + '</p>' + '</div>';
+
+    $('.chatBody').append(message);
+
+    $('.chatBody').append(reply);
   }
   }
 
