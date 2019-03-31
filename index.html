@@ -163,7 +163,7 @@ outline:none;
 
 								<div class="row">
 									<form method="GET">
-										<input type="text" placeholder="Ask DanfoBot." class="messageBox"/>
+										<input type="text" placeholder="Ask DanfoBot." class="messageBox" id="messageBox"/>
 									</form>
 								</div>
 
@@ -185,6 +185,8 @@ $("form").submit(function(event){
  $('.chatBody').append(reply);
 
  $('.messageBox').val('');
+
+ document.getElementById("messageBox").blur();
 
   return false;
 
