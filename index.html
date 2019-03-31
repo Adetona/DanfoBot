@@ -165,8 +165,9 @@ height: 50px;
                     <p class="danfoMsg">Check estimate travel time and <b>traffic</b> time between 2 places (e.g: From Ajah to Ikeja)  </p>
                 </div>
             </div>
+        </div>
 
-
+              <div class="container-fluid">
 								<div class="row">
   									<form method="GET">
   										<input type="text" placeholder="Ask DanfoBot." class="messageBox" id="messageBox"/>
@@ -182,20 +183,48 @@ height: 50px;
 
 <script type="text/javascript">
 
+
+
+
 $("form").submit(function(event){
   var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
-  var reply = '<div class="row">' +   '<p class="danfoMsg">' + $('.messageBox').val() + '</p>' + '</div>';
+  //var reply = '<div class="row">' +   '<p class="danfoMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
- $('.chatBody').append(message);
+  var messageBox  = $('.messageBox').val();
 
- $('.chatBody').append(reply);
+
+  function greetings() {
+   if(messageBox == "Hello" || messageBox == "Hi"){
+
+     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)' + '</p>' + '</div>';
+
+     $('.chatBody').append(message);
+
+     $('.chatBody').append(reply);
+
+  }
+  }
+
+
+  if (messageBox == ""){
+
+   return false;
+   //alert('Empty Box')
+ }else{
+
+  greetings();
+
+ //$('.chatBody').append(message);
+
+ //$('.chatBody').append(reply);
 
  $('.messageBox').val('');
 
  document.getElementById("messageBox").blur();
 
   return false;
+}
 
 });
 
