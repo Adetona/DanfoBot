@@ -31,26 +31,33 @@ body{
 
 
 .messageBox{
-  /*position: fixed;
+/*  position: relative;
   bottom: 0;
   width: 100%;
   border-bottom: 0px;
-
   border-left: 0px;
   border-right: 0px;
   font-size: 16px;
-
   border-top-color: gray;*/
 
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 98%;
-  padding-bottom: 5px;
+  width: 100%;
+  font-size: 15px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top-color: gray;
+  margin-left: 20px;
+
+
 
 }
 
 input {
 outline:none;
+height: 50px;
+
 }
 
 .logo{
@@ -135,7 +142,7 @@ outline:none;
 
 
 
-	        <div class="container-fluid chatBody" style="height: 1000px">
+	        <div class="container-fluid chatBody">
 								<div class="row danfo-header">
 
 											<div class="col-md-1 col-sm-1 col-xs-1" style="width: 70px">
@@ -159,15 +166,15 @@ outline:none;
                 </div>
             </div>
 
-            <div class="container-fluid">
 
 								<div class="row">
-									<form method="GET">
-										<input type="text" placeholder="Ask DanfoBot." class="messageBox" id="messageBox"/>
-									</form>
-								</div>
+  									<form method="GET">
+  										<input type="text" placeholder="Ask DanfoBot." class="messageBox" id="messageBox"/>
+  									</form>
+					    </div>
 
-	       </div>
+
+</div>
 
 </body>
 
