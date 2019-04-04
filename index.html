@@ -48,7 +48,7 @@ body{
   border-left: 0px;
   border-right: 0px;
   border-top-color: gray;
-  margin-left: 20px;
+  /*margin-left: 2px;*/
 
 
 
@@ -197,14 +197,14 @@ $("form").submit(function(event){
   function greetings() {
    if(messageBox == "Hello" || messageBox == "Hi"){
 
-     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)"' + '</p>' + '</div>';
+     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "FROM {current location} to {Destination}" for the traffic status. (eg. From Maryland to Lekki) "' + '</p>' + '</div>';
 
      $('.chatBody').append(message);
 
      $('.chatBody').append(reply);
 
   }else{
-    var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'I am sorry, I didnt get you. Type "Your location TO Destination for traffic status(eg. Ajah to Ikeja)"'  + '</p>' + '</div>';
+    var reply = '<div class="row">' +   '<p class="danfoMsg">' + "I'm sorry, I didn't understand. Type FROM {current location} to {Destination} for the traffic status. (eg. From Obalende to Ikeja)"  + '</p>' + '</div>';
 
     $('.chatBody').append(message);
 
