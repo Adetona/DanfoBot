@@ -13,9 +13,9 @@
 
 <script>
 
-if (location.protocol != 'https:'){
+/*if (location.protocol != 'https:'){
  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-}
+}*/
 
 </script>
 <style>
@@ -256,18 +256,23 @@ $.ajax({
 
          type: "GET",
          url: "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Obalende&destinations=Ikeja&mode=driving&departure_time=now&key=AIzaSyBTo0RgT_iA87Hd76gX8zYixB3PZh3z454",
-         dataType : "json",
+         dataType : "jsonp",
+        crossDomain: true,
          success: function(data){
 
          console.log(data);
 
-         consleo.log('Hellow everybody'); 
+         console.log('Hello everybody');
 
   }
 
 
 
 })
+
 </script>
 
+<script>
+console.log('Hello everyone'); 
+</script>
 </html>
