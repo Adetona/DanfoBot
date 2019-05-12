@@ -18,6 +18,10 @@
 }*/
 
 </script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTo0RgT_iA87Hd76gX8zYixB3PZh3z454">
+</script>
 <style>
 
 body{
@@ -164,12 +168,12 @@ height: 50px;
 								</div>
 
                 <div class="row danfo-row">
-                  <p class="danfoMsg"> Hi, I'm Danfo Bot, your Lagos traffic assistant</p>
+                  <p class="danfoMsg"> Hi, I'm DanfoBot, your Lagos traffic assistant</p>
                 </div>
 
 
                 <div class="row">
-                    <p class="danfoMsg">Check estimate travel time and <b>traffic</b> time between 2 places (e.g: From Ajah to Ikeja)  </p>
+                    <p class="danfoMsg">Check estimate travel time and <b>traffic</b> time between 2 places (e.g: Traffic from  Ajah to Ikeja)  </p>
                 </div>
             </div>
         </div>
@@ -194,85 +198,179 @@ height: 50px;
 
 
 $("form").submit(function(event){
-  var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
-
-  //var reply = '<div class="row">' +   '<p class="danfoMsg">' + $('.messageBox').val() + '</p>' + '</div>';
-
+event.preventDefault()
+  //the box where user type in.
   var messageBox  = $('.messageBox').val();
+  //extract the origin from the sentence
+   var extractOrigin = messageBox.split(" ");
 
 
-  function greetings() {
-   if(messageBox == "Hello" || messageBox == "Hi"){
+   //get the second value in the array (traffic from ikeja to vi)
+   var extractOrigin = extractOrigin[2];
 
-     var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "FROM {current location} to {Destination}" for the traffic status. (eg. From Maryland to Lekki) "' + '</p>' + '</div>';
-
-     $('.chatBody').append(message);
-
-     $('.chatBody').append(reply);
-
-  }else{
-    var reply = '<div class="row">' +   '<p class="danfoMsg">' + "I'm sorry, I didn't understand. Type FROM {current location} to {Destination} for the traffic status. (eg. From Obalende to Ikeja)"  + '</p>' + '</div>';
-
-    $('.chatBody').append(message);
-
-    $('.chatBody').append(reply);
-  }
-  }
+   //var extractD = extractOrigin[2];
 
 
-  if (messageBox == ""){
+     //extract the destination from the sentence
+     var extractD = messageBox.split(" ");
 
-   return false;
-   //alert('Empty Box')
- }else{
+      //get the fourth value in the array (traffic from ikeja to vi) -
+     var extractD = extractD[4];
 
-  greetings();
+     var destination1 = extractD;
 
- //$('.chatBody').append(message);
 
- //$('.chatBody').append(reply);
+   var origin = extractOrigin;
 
- $('.messageBox').val('');
+  //console.log(extractOrigin);
+   //extractOrigin;
 
- document.getElementById("messageBox").blur();
 
-  return false;
-}
+
+   var extractDestination =  messageBox.split('to')[1]
+
+
+   var destination = extractDestination;
+
+
+  //api to convert user address to Nigeria address.
+  var desUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={address}&components=country:NG&key=AIzaSyBfAfFm5WrfIpvpp02i9Qzjt7Zq7rp6Qyk";
+
+  var destination = desUrl.replace("{address}", destination);
+
+
+   var origin  = origin;
+
+   //api to convert user address to Nigeria address.
+   var originUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={address}&components=country:NG&key=AIzaSyBfAfFm5WrfIpvpp02i9Qzjt7Zq7rp6Qyk";
+
+   var origin = originUrl.replace("{address}", origin);
+
+
+     $.when( $.ajax(origin), $.ajax(destination) ).done(function(origin, destination) {
+
+
+
+       var userQuery = messageBox.split(" ");
+
+       var userQuery = userQuery[0];
+
+      if(userQuery == "traffic"){
+
+
+        var origin = origin[0].results[0].formatted_address;
+
+        var destination = destination[0].results[0].formatted_address;
+
+        console.log(origin);
+
+        console.log(destination);
+
+
+        $('.messageBox').val('');
+
+
+     }
+
+
+     function callback(response, status) {
+       if (status == 'OK') {
+         var origins = response.originAddresses;
+         var destinations = response.destinationAddresses;
+
+         for (var i = 0; i < origins.length; i++) {
+           var results = response.rows[i].elements;
+           for (var j = 0; j < results.length; j++) {
+             var element = results[j];
+             var distance = element.distance.text;
+             var duration = element.duration.text;
+             var traffic = element.duration_in_traffic.text;
+             var from = origins[i];
+             var to = destinations[j];
+
+             console.log('The traffic time is  ' + traffic);
+              //event.preventDefault()
+           }
+         }
+       }
+     }
+
+     var service = new google.maps.DistanceMatrixService();
+     service.getDistanceMatrix(
+       {
+         origins: [origin],
+         destinations: [destination],
+         travelMode: 'DRIVING',
+         drivingOptions: {
+         departureTime: new Date(Date.now()),  // for the time N milliseconds from now.
+         trafficModel: 'bestguess'
+       },
+         unitSystem: google.maps.UnitSystem.METRIC,
+       }, callback);
+
+
+      var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
+
+      function botReply() {
+
+        if(userQuery != "traffic" ){
+
+          var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "FROM {current location} to {Destination}" for the traffic status. (eg. From Maryland to Lekki) "' + '</p>' + '</div>';
+
+          $('.chatBody').append(message);
+
+          $('.chatBody').append(reply);
+
+
+       }
+
+
+
+
+       /*else{
+         var reply = '<div class="row">' +   '<p class="danfoMsg">' + "I'm sorry, I didn't understand. Type FROM {current location} to {Destination} for the traffic status. (eg. From Obalende to Ikeja)"  + '</p>' + '</div>';
+
+         $('.chatBody').append(message);
+
+         $('.chatBody').append(reply);
+
+
+
+
+       }*/
+
+     }
+
+     if (messageBox == ""){
+
+      return false;
+      //alert('Empty Box')
+     }else{
+
+     botReply();
+
+     $('.messageBox').val('');
+
+     document.getElementById("messageBox").blur();
+
+     return false;
+     }
+
+
+
 
 });
 
+
+
+
+
+
+
+}); //end form submission
 </script>
 
-<!--script>
-
-  console.log('Message sent');
-
-
-</script-->
-
-<script>
-//url: "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Ikorodu&destinations=Ikeja&key=AIzaSyBTo0RgT_iA87Hd76gX8zYixB3PZh3z454",
-$.ajax({
-
-         type: "GET",
-         url: "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Obalende&destinations=Ikeja&mode=driving&departure_time=now&key=AIzaSyBTo0RgT_iA87Hd76gX8zYixB3PZh3z454",
-         dataType : "jsonp",
-        crossDomain: true,
-         success: function(data){
-
-         console.log(data);
-
-         console.log('Hello everybody');
-
-  }
 
 
 
-})
-
-</script>
-
-<script>
-console.log('Hello everyone'); 
-</script>
 </html>
