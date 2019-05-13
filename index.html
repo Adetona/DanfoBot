@@ -259,6 +259,10 @@ event.preventDefault()
 
        var userQuery = userQuery[0];
 
+       //user message
+       var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
+
+
       if(userQuery == "traffic"){
 
 
@@ -270,6 +274,7 @@ event.preventDefault()
 
         console.log(destination);
 
+        $('.chatBody').append(message);
 
         $('.messageBox').val('');
 
@@ -293,7 +298,15 @@ event.preventDefault()
              var to = destinations[j];
 
              console.log('The traffic time is  ' + traffic);
+
+             console.log('The duration is ' + duration);
+
+             console.log('The distance is ' + distance);
               //event.preventDefault()
+
+              var reply = '<div class="row">' +   '<p class="danfoMsg" style="width: 150px">'  + 'Traffic time:' + traffic +  '</p>' + '</div>';
+
+              $('.chatBody').append(reply);
            }
          }
        }
@@ -313,7 +326,6 @@ event.preventDefault()
        }, callback);
 
 
-      var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
       function botReply() {
 
