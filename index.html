@@ -304,7 +304,7 @@ event.preventDefault()
              console.log('The distance is ' + distance);
               //event.preventDefault()
 
-              var reply = '<div class="row">' +   '<p class="danfoMsg" style="width: 150px">'  + 'Duration(<b>without traffic</b>) : ' + duration + '<br>' + 'Current situation(<b>with traffic</b>): ' + traffic + '<br>' + 'Distance:' + distance + '<br>' + "(Source: Live traffic data from Google)" + '</p>' + '</div>';
+              var reply = '<div class="row">' +   '<p class="danfoMsg" style="width: 150px">' + 'Distance: ' + distance + '<br>' +  'Duration(<b>without traffic</b>) : ' + duration + '<br>' + 'Current situation(<b>with traffic</b>): ' + traffic + '<br>' + "(Source: Live traffic data from Google)" + '</p>' + '</div>';
 
               $('.chatBody').append(reply);
            }
