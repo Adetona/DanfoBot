@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
 
 /*if (location.protocol != 'https:'){
@@ -172,7 +172,7 @@ height: 50px;
 								</div>
 
                 <div class="row danfo-row">
-                  <p class="danfoMsg"> Hi, I'm DanfoBot, your Lagos traffic assistant</p>
+                  <p class="danfoMsg"> Hi, I'm DanfoBot, your Lagos traffic assistant. </p>
                 </div>
 
 
@@ -304,7 +304,7 @@ event.preventDefault()
              console.log('The distance is ' + distance);
               //event.preventDefault()
 
-              var reply = '<div class="row">' +   '<p class="danfoMsg" style="width: 150px">' + 'Distance: ' + distance + '<br>' +  'Duration(<b>without traffic</b>) : ' + duration + '<br>' + 'Current situation(<b>with traffic</b>): ' + traffic + '<br>' + "(Source: Live traffic data from Google)" + '</p>' + '</div>';
+              var reply = '<div class="row">' +   '<p class="danfoMsg" style="width: 150px">' + 'Distance: ' + distance + '<br>' +  'Duration(without traffic) : ' + duration + '<br>' + 'Current situation(with traffic): ' + traffic + '<br>' + "(Live traffic data from Google)" + '<br>' + 'Share: ' + '<i class="fa fa-whatsapp" aria-hidden="true"></i>' + '</p>' + '</div>';
 
               $('.chatBody').append(reply);
            }
@@ -336,7 +336,6 @@ event.preventDefault()
           $('.chatBody').append(message);
 
           $('.chatBody').append(reply);
-
 
        }
 
