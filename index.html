@@ -304,7 +304,7 @@ event.preventDefault()
              console.log('The distance is ' + distance);
               //event.preventDefault()
 
-              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Duration(without traffic) : ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Live traffic data from Google)" + '</p>' + 'Share: ' + '<a href="whatsapp://send?text= "'<p>' + 'Distance: ' + distance + '</p>'" data-action="share/whatsapp/share"><i class="fa fa-whatsapp" aria-hidden="true" style="color: #25D366"></i></a>' + '</div>' + '</div>';
+              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Duration(without traffic) : ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Live traffic data from Google)" + '</p>' + 'Share: ' + '<a href="https://api.whatsapp.com/send?text=textToshare" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="color: #25D366"></i></a>' + '</div>' + '</div>';
 
               $('.chatBody').append(reply);
            }
