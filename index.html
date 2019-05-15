@@ -257,13 +257,17 @@ event.preventDefault()
 
        var userQuery = messageBox.split(" ");
 
-       var userQuery = userQuery[0];
+       var userQuery = userQuery[0].toLowerCase(); //convert to lowercase
+
+       var checkTraffic =  userQuery.substring(0, 3); //check if the 3 words contains "tra"
+
+
 
        //user message
        var message =  '<div class="row">' +   '<p class="userMsg">' + $('.messageBox').val() + '</p>' + '</div>';
 
 
-      if(userQuery == "traffic"){
+      if(userQuery == "traffic" || checkTraffic == "tra"){
 
 
         var origin = origin[0].results[0].formatted_address;
@@ -302,19 +306,9 @@ event.preventDefault()
              console.log('The duration is ' + duration);
 
              console.log('The distance is ' + distance);
-              //event.preventDefault()
 
-            //  var whatsapp = '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Duration(without traffic) : ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Live traffic data from Google)" + '</p>';
-
-             //var whatsapp = "This%20is%20a%20sentence. %0AThis%20is%20another%20sentence.";
-
-            // var whatsapp = "'Distance:%20' + distance + '%20'"
 
              var whatsapp = 'Distance:%20' + distance + '%20%0ADuration(without traffic):%20' + duration + '%20%0ACurrent situation(with traffic):' + traffic;
-
-             //%0AThis%20is%20another%20sentence.";
-
-              //var whatsapp = 'Distance%20' + distance + '%20' + '.' + '%0ADuration';
 
 
               var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Duration(without traffic) : ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Live traffic data from Google)" + '</p>' + "Share:"  +
@@ -344,7 +338,7 @@ event.preventDefault()
 
       function botReply() {
 
-        if(userQuery != "traffic" ){
+        if(userQuery != "traffic" && checkTraffic != "tra" ){
 
           var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "FROM {current location} to {Destination}" for the traffic status. (eg. From Maryland to Lekki) "' + '</p>' + '</div>';
 
