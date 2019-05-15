@@ -10,7 +10,8 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="dist/jquery.convform.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+
 <script>
 
 /*if (location.protocol != 'https:'){
@@ -34,6 +35,7 @@ body{
   /*font-size: 15px;*/
 
 }
+
 
   .danfo-header{
     background-color: #FFBF00;
@@ -86,7 +88,7 @@ height: 50px;
   position: relative;
   background:  #fff;
   margin-left: 50px;
-  min-width: 25%;
+  min-width: 30%;
   padding: 10px 15px;
   border-radius: 6px;
   border: 1px solid #fff;
@@ -110,6 +112,22 @@ height: 50px;
   margin-top: 20px;
 }
 
+/*Mobile css for bot response*/
+@media only screen and (max-width: 600px) {
+  .danfoMsg{
+    position: relative;
+    background:  #fff;
+    margin-left: 50px;
+    min-width: 300px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #fff;
+    float: left;
+    right: 20px;
+    /*color: white;*/
+
+  }
+}
 
 
 .userMsg {
