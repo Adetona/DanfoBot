@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="/manifest.json">
 
 <script>
 
@@ -413,81 +413,6 @@ event.preventDefault()
 
 
 }); //end form submission
-</script>
-
-<script>
-
-var deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', function (e) {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-
-  showAddToHomeScreen();
-
-});
-
-function showAddToHomeScreen() {
-
-  var a2hsBtn = document.querySelector(".ad2hs-prompt");
-
-  a2hsBtn.style.display = "block";
-
-  a2hsBtn.addEventListener("click", addToHomeScreen);
-
-}
-
-function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-prompt");  // hide our user interface that shows our A2HS button
-  a2hsBtn.style.display = 'none';  // Show the prompt
-  deferredPrompt.prompt();  // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice
-    .then(function(choiceResult){
-
-  if (choiceResult.outcome === 'accepted') {
-    console.log('User accepted the A2HS prompt');
-  } else {
-    console.log('User dismissed the A2HS prompt');
-  }
-
-  deferredPrompt = null;
-
-});}
-
-addToHomeScreen()
-</script>
-
-
-<script>
-//service worker
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker
-           .register('/sw.js')
-           .then(function() { console.log("Service Worker Registered"); });
-}
-
-
-self.addEventListener('install', function(e) {
- e.waitUntil(
-   caches.open('danfobot').then(function(cache) {
-     return cache.addAll([
-       '/',
-       '/index.html',
-       '/?source=pwa',
-       'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
-       'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
-       'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
-     ]);
-   })
- );
-});
-
-self.addEventListener('fetch', function(event) {
- console.log(event.request.url);
-});
-
-
 </script>
 
 
