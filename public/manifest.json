@@ -1,6 +1,7 @@
+
 {
-  "short_name": "an",
-  "name": "danfobot",
+  "short_name": "Maps",
+  "name": "Google Maps",
   "icons": [
     {
       "src": "http://via.placeholder.com/192.png",
@@ -13,8 +14,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?source=pwa",
-  "background_color": "#FFBF00",
+  "start_url": "/maps/?source=pwa",
+  "background_color": "#3367D6",
   "display": "standalone",
-  "theme_color": "#FFBF00"
+  "scope": "/maps/",
+  "theme_color": "#3367D6"
 }
