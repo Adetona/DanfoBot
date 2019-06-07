@@ -4,12 +4,12 @@
   "name": "DanfoBot",
   "icons": [
     {
-      "src": "https://via.placeholder.com/192.png",
+      "src": "https://res.cloudinary.com/memeafrica/image/upload/c_scale,h_192,w_192/v1559927560/danfo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://via.placeholder.com/512.png",
+      "src": "https://res.cloudinary.com/memeafrica/image/upload/c_scale,h_512,w_512/v1559927560/danfo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
