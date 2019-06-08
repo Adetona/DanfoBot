@@ -4,12 +4,12 @@
   "name": "DanfoBot",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/memeafrica/image/upload/v1559999578/android-chrome-192x192.png",
+      "src": "https://res.cloudinary.com/memeafrica/image/upload/c_scale,h_192,w_192/v1560005908/6c2ee3e2-0ecb-4a86-998f-940bc523e762.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://res.cloudinary.com/memeafrica/image/upload/v1559999527/android-chrome-512x512.png",
+      "src": "https://res.cloudinary.com/memeafrica/image/upload/c_scale,h_512,w_512/v1560005908/6c2ee3e2-0ecb-4a86-998f-940bc523e762.png",
       "type": "image/png",
       "sizes": "512x512"
     }
