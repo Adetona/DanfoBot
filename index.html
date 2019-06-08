@@ -48,7 +48,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 <!--link rel="stylesheet" type="text/css" href="dist/jquery.convform.css"-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -77,8 +77,8 @@ if(location.hostname != "localhost" && location.protocol != 'https:'){
 
 body{
   background: #F5F5F5;
-  font-family: 'Open Sans', sans-serif;
-  /*font-size: 15px;*/
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
 
 }
 
@@ -106,7 +106,7 @@ body{
   position: fixed;
   bottom: 0;
   width: 100%;
-  font-size: 15px;
+  font-size: 17px;
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -140,6 +140,7 @@ height: 50px;
   border: 1px solid #fff;
   float: left;
   right: 20px;
+  font-size: 17px; 
   /*color: white;*/
 
 }
@@ -375,7 +376,7 @@ event.preventDefault()
              var whatsapp = 'Distance:%20' + distance + '%20%0ADuration(without traffic):%20' + duration + '%20%0ACurrent situation(with traffic):' + traffic;
 
 
-              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Duration(without traffic) : ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Live traffic data from Google)" + '</p>' + "Share:"  +
+              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Estimated travel time: ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Traffic data from Google)" + '</p>' + "Share:"  +
 
               '<a href="https://api.whatsapp.com/send?text='+ whatsapp +'" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="color: #25D366"></i></a>' + '</div>' + '</div>';
 
