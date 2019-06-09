@@ -171,7 +171,7 @@ height: 50px;
     border: 1px solid #fff;
     float: left;
     right: 20px;
-    font-size: 15px; 
+    font-size: 15px;
     /*color: white;*/
 
   }
@@ -243,7 +243,7 @@ height: 50px;
 
 
                 <div class="row">
-                    <p class="danfoMsg">Check traffic time and average estimated travel time between places in Lagos( eg: traffic from Lekki to Yaba)</p>
+                    <p class="danfoMsg">I can help check traffic time and average estimated travel time between places in Lagos(eg: traffic from Lekki to Yaba)</p>
                 </div>
             </div>
         </div>
@@ -374,12 +374,12 @@ event.preventDefault()
              console.log('The distance is ' + distance);
 
 
-             var whatsapp = 'Distance:%20' + distance + '%20%0ADuration(without traffic):%20' + duration + '%20%0ACurrent situation(with traffic):' + traffic;
+             var whatsapp = 'From ' + '_' + origin + '_' + ' to ' + '_' + destination + '_' + '%20%0A' + 'Distance:%20' + distance + '%20%0AEstimated travel time:%20' + duration + '%20%0ACurrent travel time:' + traffic + '%20%0A(via Danfobot.com)';
 
 
-              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Estimated travel time: ' + duration + '</p>' + '<p>' + 'Current situation(with traffic): ' + traffic + '</p>' + '<p>' + "(Traffic data from Google)" + '</p>' + "Share:"  +
+              var reply = '<div class="row">' +   '<div class="danfoMsg" style="width: 150px">' + '<p>' + 'From ' + '<i>' + origin + '</i>' + ' to ' + '<i>' + destination + '</i>' + '</p>' + '<p>' + 'Distance: ' + distance + '</p>' + '<p>' +  'Estimated travel time: ' + duration + '</p>' + '<p>' + 'Current travel time: ' + traffic + '</p>' +  '<p>' + "(Live traffic data from Google)" + '</p>' + "Share:"  +
 
-              '<a href="https://api.whatsapp.com/send?text='+ whatsapp +'" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true" style="color: #25D366"></i></a>' + '</div>' + '</div>';
+              '<a href="https://api.whatsapp.com/send?text='+ whatsapp +'" target="_blank"><img src="https://img.icons8.com/color/48/000000/whatsapp.png" style="width: 20px; height: 20px"></a>' + '</div>' + '</div>';
 
               $('.chatBody').append(reply);
            }
@@ -406,7 +406,7 @@ event.preventDefault()
 
         if(userQuery != "traffic" && checkTraffic != "tra" ){
 
-          var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Hi, how can I help today? Type "FROM {current location} to {Destination}" for the traffic status. (eg. From Maryland to Lekki) "' + '</p>' + '</div>';
+          var reply = '<div class="row">' +   '<p class="danfoMsg">' + 'Wrong input or non-existing location. type "traffic from {current location} to {Destination}" for the traffic status.(eg. From Maryland to Lekki) "' + '</p>' + '</div>';
 
           $('.chatBody').append(message);
 
